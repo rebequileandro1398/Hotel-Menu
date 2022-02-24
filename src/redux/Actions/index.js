@@ -1,11 +1,11 @@
 import axios from 'axios'
-const {API_KEY} = process.env;
+
 
 
 export default function getMenu(menu = 'burger') {
     return  async function(dispatch) {
 
-       await axios.get(`https://api.spoonacular.com/food/menuItems/search?query=${menu}&number=2&apiKey=${API_KEY}`)
+       await axios.get(`https://api.spoonacular.com/food/menuItems/search?query=${menu}&number=4&apiKey=63a42f1302894afc8e2a571447ed97d2`)
        .then(data => {
         dispatch({
             type: 'GET_MENU',
