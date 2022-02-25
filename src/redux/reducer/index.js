@@ -23,6 +23,12 @@ export default function reducer(state = initialState, action) {
             ...state,
             order: state.order.concat(filter)
         }
+        case 'REMOVE':
+            let remove = state.order.filter(e => e.id !== action.payload)
+            return {
+                ...state,
+                order: remove
+            }
         default: 
             return state;
     }

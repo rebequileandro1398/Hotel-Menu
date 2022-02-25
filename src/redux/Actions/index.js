@@ -32,3 +32,9 @@ export function add(id) {
         payload: id
     }
 }
+export function remove(id) {
+    return {
+        type: 'REMOVE',
+        payload: id
+    }
+}

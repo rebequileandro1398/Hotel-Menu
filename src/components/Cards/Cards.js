@@ -4,7 +4,6 @@ import { Card } from './Card'
 
 export const Cards = () => {
     const getMenu = useSelector((state) => state.menu)
-    console.log(getMenu)
   return (
     <div>
         {getMenu?.map(e => {

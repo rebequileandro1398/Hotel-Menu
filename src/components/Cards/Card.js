@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { add } from '../../redux/Actions'
+import { add, remove } from '../../redux/Actions'
 
 
 
-export const Card = ({name, image, desc, id}) => {
+export const Card = ({name, image, desc, id, btn}) => {
    const dispatch = useDispatch()
 
 
@@ -22,7 +22,11 @@ export const Card = ({name, image, desc, id}) => {
             </div>
         </div>
         <div style={{alignSelf: 'flex-end', margin: '1rem'}}>
-            <button className='btn btn-outline-dark' onClick={()=> dispatch(add(id))}>+</button>
+            {
+                btn ? <button className='btn btn-outline-dark' onClick={()=> dispatch(remove(id))}>x</button>
+                :
+                <button className='btn btn-outline-dark' onClick={()=> dispatch(add(id))}>+</button>
+            }
         </div>
     </div>
   )
