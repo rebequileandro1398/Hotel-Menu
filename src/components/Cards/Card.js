@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { add, remove } from '../../redux/Actions'
 
@@ -6,7 +6,7 @@ import { add, remove } from '../../redux/Actions'
 
 export const Card = ({name, image, desc, id, btn}) => {
    const dispatch = useDispatch()
-
+   const [isTrue, setIsTrue] = useState(false)
 
   return (
     <div className='card mb-3' style={{width: "40rem"}}>
@@ -23,9 +23,9 @@ export const Card = ({name, image, desc, id, btn}) => {
         </div>
         <div style={{alignSelf: 'flex-end', margin: '1rem'}}>
             {
-                btn ? <button className='btn btn-outline-dark' onClick={()=> dispatch(remove(id))}>x</button>
+                btn ? <button className='btn btn-outline-dark' onClick={()=> dispatch(remove(id), setIsTrue(false))}>x</button>
                 :
-                <button className='btn btn-outline-dark' onClick={()=> dispatch(add(id))}>+</button>
+                <button className={isTrue ? "btn btn-outline-success" : 'btn btn-outline-dark'} onClick={()=> dispatch(add(id), setIsTrue(true))}>{isTrue ? '✓' : '+'}</button>
             }
         </div>
     </div>

@@ -18,11 +18,11 @@ export default function reducer(state = initialState, action) {
                 menu: action.payload
             }
         case 'ADD': 
-        let filter = state.menu.filter(e => e.id === action.payload)
-        return {
-            ...state,
-            order: state.order.concat(filter)
-        }
+            let filter = state.menu.filter(e => e.id === action.payload)
+            return {
+                ...state,
+                order: state.order.concat(filter)
+            }
         case 'REMOVE':
             let remove = state.order.filter(e => e.id !== action.payload)
             return {
