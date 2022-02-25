@@ -17,7 +17,7 @@ export const Navbar = () => {
     }
 
     return (
-        <div className="navbar navbar-dark bg-dark">
+        <div className="navbar navbar-dark bg-dark" style={{marginBottom:'1rem'}}>
             <div className="container-fluid">
                 <h1 style={{color: '#fff'}}>Menu</h1>
                 <form className="d-flex" onSubmit={handleSubmit}>

@@ -1,6 +1,5 @@
 const initialState = {
    menu: [],
-   search: []
 }
 
 
@@ -15,7 +14,7 @@ export default function reducer(state = initialState, action) {
         case 'SEARCH_MENU': 
             return {
                 ...state,
-                search: action.payload
+                menu: action.payload
             }
         default: 
             return state;
