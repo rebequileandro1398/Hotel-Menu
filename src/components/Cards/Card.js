@@ -1,6 +1,13 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { add } from '../../redux/Actions'
 
-export const Card = ({name, image, desc}) => {
+
+
+export const Card = ({name, image, desc, id}) => {
+   const dispatch = useDispatch()
+
+
   return (
     <div className='card mb-3' style={{width: "40rem"}}>
         <div className='row g-0'>
@@ -13,6 +20,9 @@ export const Card = ({name, image, desc}) => {
                     <p className='card-text'>{desc}</p>
                 </div>
             </div>
+        </div>
+        <div style={{alignSelf: 'flex-end', margin: '1rem'}}>
+            <button className='btn btn-outline-dark' onClick={()=> dispatch(add(id))}>+</button>
         </div>
     </div>
   )

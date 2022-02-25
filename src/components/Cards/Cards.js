@@ -10,6 +10,7 @@ export const Cards = () => {
         {getMenu?.map(e => {
             return <div key={e.id}>
                     <Card 
+                    id={e.id}
                     name={e.title}
                     image={e.image}
                     desc={e.restaurantChain}

@@ -1,5 +1,6 @@
 const initialState = {
    menu: [],
+   order: []
 }
 
 
@@ -16,6 +17,12 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 menu: action.payload
             }
+        case 'ADD': 
+        let filter = state.menu.filter(e => e.id === action.payload)
+        return {
+            ...state,
+            order: state.order.concat(filter)
+        }
         default: 
             return state;
     }

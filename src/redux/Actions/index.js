@@ -26,3 +26,9 @@ export function searchMenu(menu) {
        })        
     }
 }
+export function add(id) {
+    return {
+        type: 'ADD',
+        payload: id
+    }
+}
