@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 const initialState = {
    menu: [],
    order: []
@@ -21,7 +23,12 @@ export default function reducer(state = initialState, action) {
             let filter;
             let check = state.order.filter(e => e.id === action.payload)
             check.length === 0 ? filter = state.menu.filter(e => e.id === action.payload) 
-            : alert('Ya agregaste este plato a tu orden')
+            : swal({
+                title: "Upss!",
+                text: "Ya agregaste este plato a tu orden",
+                icon: "error",
+                timer: 3000
+              });  
 
             return {
                 ...state,
