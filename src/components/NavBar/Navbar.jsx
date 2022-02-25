@@ -6,6 +6,9 @@ import order from '../../assets/order.png'
 import food from '../../assets/food.png'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import styles from './Bubble.module.css'
+
+
 export const Navbar = () => {
     const [search, setSearch] = useState('')
     const dispatch = useDispatch()
@@ -33,15 +36,7 @@ export const Navbar = () => {
                         </Link>
                         {
                             number.length > 0 ?
-                            <div style={{
-                                backgroundColor: '#CB0F0F', 
-                                width: '1rem', height: '1rem', 
-                                borderRadius: '1rem', 
-                                display: 'flex', 
-                                justifyContent: 'center', 
-                                alignContent: 'center', 
-                                position: 'absolute', 
-                                marginTop: "-0.8rem"}}>
+                            <div className={styles.bubble}>
                                 <p style={{fontSize: '0.6rem', color: '#fff'}}>{number.length}</p>
                             </div>
                             : null

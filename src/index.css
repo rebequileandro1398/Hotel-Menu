@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.swal-button--confirm{
+  background-color: #212429;
+}
+.swal-button--confirm:hover{
+  background-color: #545961;
+}

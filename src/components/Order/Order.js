@@ -21,7 +21,7 @@ export const Order = () => {
             :
             <div>
                 <img src={noOrder} alt='' style={{width:"30rem", opacity: '0.4'}}/>
-                <h1 style={{opacity: '0.4'}}>no tienes ningun pediodo</h1>
+                <h1 style={{opacity: '0.4'}}>No tienes ningún pedido</h1>
             </div>
         }
     </div>

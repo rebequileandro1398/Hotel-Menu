@@ -18,10 +18,14 @@ export default function reducer(state = initialState, action) {
                 menu: action.payload
             }
         case 'ADD': 
-            let filter = state.menu.filter(e => e.id === action.payload)
+            let filter;
+            let check = state.order.filter(e => e.id === action.payload)
+            check.length === 0 ? filter = state.menu.filter(e => e.id === action.payload) 
+            : alert('Ya agregaste este plato a tu orden')
+
             return {
                 ...state,
-                order: state.order.concat(filter)
+                order: filter ? state.order.concat(filter) : state.order
             }
         case 'REMOVE':
             let remove = state.order.filter(e => e.id !== action.payload)
