@@ -7,7 +7,7 @@ import food from '../../assets/food.png'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Bubble.module.css'
-
+import timer from '../../assets/timer.png'
 
 export const Navbar = () => {
     const [search, setSearch] = useState('')
@@ -30,7 +30,8 @@ export const Navbar = () => {
                     <img src={food} alt=""  style={{width:'2.5rem'}}/>
                 </Link>
                 <form className="d-flex" onSubmit={handleSubmit}>
-                    <div>
+                    <img src={timer} alt=""  style={{width:'2.6rem', marginRight:'1rem'}}/>
+                    <div className='d-flex flex-row'>
                         <Link to='/session/order'>
                             <img src={order} alt=""  style={{width:'2.5rem', marginRight:'1rem'}}/>
                         </Link>
