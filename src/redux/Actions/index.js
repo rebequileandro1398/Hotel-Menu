@@ -14,6 +14,7 @@ export default function getMenu(menu = 'burger') {
        })        
     }
 }
+
 export function searchMenu(menu) {
     return  async function(dispatch) {
 
@@ -26,12 +27,27 @@ export function searchMenu(menu) {
        })        
     }
 }
+
+export function getDetails(id) {
+    return  async function(dispatch) {
+
+       await axios.get(`https://api.spoonacular.com/food/menuItems/${id}`)
+       .then(data => {
+        dispatch({
+            type: 'DETAILS_ITEM',
+            payload: data.data
+        })
+       })        
+    }
+}
+
 export function add(id) {
     return {
         type: 'ADD',
         payload: id
     }
 }
+
 export function remove(id) {
     return {
         type: 'REMOVE',

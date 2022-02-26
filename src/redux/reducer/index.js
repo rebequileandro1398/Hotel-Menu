@@ -2,7 +2,8 @@ import swal from 'sweetalert';
 
 const initialState = {
    menu: [],
-   order: []
+   order: [],
+   details: []
 }
 
 
@@ -39,6 +40,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 order: remove
+            }
+        case 'DETAILS_ITEM':
+            return {
+                ...state,
+                details: action.payload
             }
         default: 
             return state;
