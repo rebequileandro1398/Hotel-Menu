@@ -9,6 +9,7 @@ export const Card = ({name, image, desc, id, btn}) => {
    const dispatch = useDispatch()
    const [isTrue, setIsTrue] = useState(false)
    const navigate = useNavigate();
+
    const check = (action, state, title, text, icon) => {
     swal({
         title: title,
@@ -19,6 +20,7 @@ export const Card = ({name, image, desc, id, btn}) => {
           if(res) dispatch(action) && setIsTrue(state)
       })
    }
+
 
   return (
     <div className='card mb-3' style={{width: "40rem"}}>
@@ -33,11 +35,23 @@ export const Card = ({name, image, desc, id, btn}) => {
                 </div>
             </div>
         </div>
-        <div style={{alignSelf: 'flex-end', margin: '1rem'}}>
+        <div className='d-flex flex-row' style={{alignSelf: 'flex-end', margin: '1rem'}}>
+            {
+                btn && 
+            <div className='d-flex flex-row'>
+                <button className='btn btn-light'>-</button>
+                    <p style={{marginRight: '1rem', marginLeft: '1rem'}}>x 12</p>
+                <button style={{marginRight: '1rem'}} className='btn btn-light'>+</button>
+            </div>
+            }
             <button style={{marginRight:'0.5rem'}} onClick={()=> dispatch(getDetails(id)) && navigate('/session/details')} className='btn btn-outline-secondary'>ver mas</button>
             {
-                btn ? <button className='btn btn-outline-dark' 
-                        onClick={()=> check(remove(id), false, 'Eliminar', '¿Quieres eliminar este plato de tu pedido?', 'warning')}>x</button>
+                btn ? 
+                <button 
+                    className='btn btn-outline-dark' 
+                    onClick={()=> check(remove(id), false, 'Eliminar', '¿Quieres eliminar este plato de tu pedido?', 'warning')}>
+                    x
+                </button>
                 :
                 <button 
                     className={isTrue ? "btn btn-outline-success" : "btn btn-dark"} 
