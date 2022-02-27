@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 
-
 export default function getMenu(menu = 'burger') {
     return  async function(dispatch) {
 
@@ -51,10 +50,4 @@ export function remove(id) {
         type: 'REMOVE',
         payload: id
     }
-}
-export function login(login) {
-    return async function() {
-       const res = await axios.post(`http://challenge-react.alkemy.org/`, login)  
-       return res;
-    } 
 }
