@@ -17,7 +17,6 @@ export default function getMenu(menu = 'burger') {
 
 export function searchMenu(menu) {
     return  async function(dispatch) {
-
        await axios.get(`https://api.spoonacular.com/food/menuItems/search?query=${menu}&apiKey=63a42f1302894afc8e2a571447ed97d2`)
        .then(data => {
         dispatch({
@@ -30,7 +29,6 @@ export function searchMenu(menu) {
 
 export function getDetails(id) {
     return  async function(dispatch) {
-
        await axios.get(`https://api.spoonacular.com/food/menuItems/${id}`)
        .then(data => {
         dispatch({
@@ -53,4 +51,10 @@ export function remove(id) {
         type: 'REMOVE',
         payload: id
     }
+}
+export function login(login) {
+    return async function() {
+       const res = await axios.post(`http://challenge-react.alkemy.org/`, login)  
+       return res;
+    } 
 }
