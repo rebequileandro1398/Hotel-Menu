@@ -4,16 +4,18 @@ import { useDispatch } from 'react-redux';
 import { searchMenu } from '../../redux/Actions';
 import order from '../../assets/order.png'
 import food from '../../assets/food.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Bubble.module.css'
 import timer from '../../assets/timer.png'
 import exit from '../../assets/exit.png'
-import { LogOut } from '../Login/LogOut';
+import swal from 'sweetalert';
+
 export const Navbar = () => {
     const [search, setSearch] = useState('')
     const dispatch = useDispatch()
     const number = useSelector(state => state.order)
+    const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -23,16 +25,27 @@ export const Navbar = () => {
         e.preventDefault()
         setSearch(e.target.value)
     }
-
+    const logOut = () =>{
+        swal({
+            title: '¿Deseas cerrar sesion?',
+            icon: 'warning',
+            buttons: ['No', 'Si'],
+          }).then(res => {
+              if(res){
+                localStorage.removeItem('tokenHM');
+                navigate('/')
+              }
+          })
+    }
     return (
         <div className="navbar navbar-dark bg-dark" style={{marginBottom:'1rem'}}>
             <div className="container-fluid">
                 <div>
-                    <button onClick={LogOut()} style={{marginRight:'1rem', backgroundColor: 'transparent', border: 'none'}}>
+                    <button onClick={()=> logOut()} style={{marginRight:'1rem', backgroundColor: 'transparent', border: 'none'}}>
                         <img src={exit} alt="exit" style={{width:'2rem'}}/>
                     </button>
                     <Link to='/session/home'>
-                        <img src={food} alt=""  style={{width:'2.5rem'}}/>
+                        <img src={food} alt="food"  style={{width:'2.5rem'}}/>
                     </Link>
                 </div>
                 <form className="d-flex" onSubmit={handleSubmit}>

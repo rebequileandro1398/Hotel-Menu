@@ -45,11 +45,10 @@ export const Login = () => {
             })
         }
     }
-
     const check = () => {
         setTimeout(() => {
             navigate('/session/home', { replace: true })
-        }, 2000);
+        }, 3000);
     }
 
     return (

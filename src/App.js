@@ -12,14 +12,17 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<Login/>}/>
-        <Route element={<PrivateRout/>}/>
-        <Route path='/session/*' element={<Navbar/>}/>
+        <Route element={<PrivateRout/>}>
+          <Route path='/session/*' element={<Navbar/>}/>
+        </Route>
       </Routes>
       <div className='App'>
         <Routes>
-          <Route path='/session/home' element={<Home/>}/>
-          <Route path='/session/order' element={<Order/>}/>
-          <Route path='/session/details' element={<Details/>}/>
+          <Route element={<PrivateRout/>}>
+            <Route path='/session/home' element={<Home/>}/>
+            <Route path='/session/order' element={<Order/>}/>
+            <Route path='/session/details' element={<Details/>}/>
+          </Route>
         </Routes>
       </div>
     </div>
