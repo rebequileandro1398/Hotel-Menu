@@ -15,6 +15,11 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 menu: action.payload
             }
+        case 'GET_MENU_VEGAN':
+            return {
+                ...state,
+                menu: state.menu.concat(action.payload)
+            }
         case 'SEARCH_MENU': 
             return {
                 ...state,
