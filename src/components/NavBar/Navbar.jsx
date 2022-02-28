@@ -8,7 +8,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styles from './Bubble.module.css'
 import timer from '../../assets/timer.png'
-
+import exit from '../../assets/exit.png'
+import { LogOut } from '../Login/LogOut';
 export const Navbar = () => {
     const [search, setSearch] = useState('')
     const dispatch = useDispatch()
@@ -26,9 +27,14 @@ export const Navbar = () => {
     return (
         <div className="navbar navbar-dark bg-dark" style={{marginBottom:'1rem'}}>
             <div className="container-fluid">
-                <Link to='/session/home'>
-                    <img src={food} alt=""  style={{width:'2.5rem'}}/>
-                </Link>
+                <div>
+                    <button onClick={LogOut()} style={{marginRight:'1rem', backgroundColor: 'transparent', border: 'none'}}>
+                        <img src={exit} alt="exit" style={{width:'2rem'}}/>
+                    </button>
+                    <Link to='/session/home'>
+                        <img src={food} alt=""  style={{width:'2.5rem'}}/>
+                    </Link>
+                </div>
                 <form className="d-flex" onSubmit={handleSubmit}>
                     <img src={timer} alt=""  style={{width:'2.6rem', marginRight:'1rem'}}/>
                     <div className='d-flex flex-row'>
@@ -36,13 +42,11 @@ export const Navbar = () => {
                             <img src={order} alt=""  style={{width:'2.5rem', marginRight:'1rem'}}/>
                         </Link>
                         {
-                            number.length > 0 ?
+                            number.length > 0 &&
                             <div className={styles.bubble}>
                                 <p style={{fontSize: '0.6rem', color: '#fff'}}>{number.length}</p>
                             </div>
-                            : null
                         }
-                        
                     </div>
                     <input type="search" placeholder='Platos...' className="form-control me-2" onChange={handleChange}/>
                     <button type="submit" className="btn btn-outline-light" onClick={handleSubmit}>Buscar</button>

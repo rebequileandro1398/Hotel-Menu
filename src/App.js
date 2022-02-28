@@ -5,12 +5,14 @@ import { Navbar } from './components/NavBar/Navbar';
 import { Order } from './components/Order/Order';
 import { Details } from './components/Cards/Details';
 import { Login } from './components/Login/Login';
+import { PrivateRout } from './components/PrivateRoutes/PrivateRout';
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path='/' element={<Login/>}/>
+        <Route element={<PrivateRout/>}/>
         <Route path='/session/*' element={<Navbar/>}/>
       </Routes>
       <div className='App'>

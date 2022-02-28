@@ -13,7 +13,7 @@ export const Login = () => {
         password: ""
       })
     const getToken = localStorage.getItem('tokenHM')
-      useEffect(() => {
+    useEffect(() => {
         setLoad(true)
         getToken ? check()
         :
@@ -48,7 +48,7 @@ export const Login = () => {
 
     const check = () => {
         setTimeout(() => {
-            navigate('/session/home')
+            navigate('/session/home', { replace: true })
         }, 2000);
     }
 
