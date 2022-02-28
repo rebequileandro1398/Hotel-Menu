@@ -36,14 +36,6 @@ export const Card = ({name, image, desc, id, btn}) => {
             </div>
         </div>
         <div className='d-flex flex-row' style={{alignSelf: 'flex-end', margin: '1rem'}}>
-            {
-                btn && 
-            <div className='d-flex flex-row'>
-                <button className='btn btn-light'>-</button>
-                    <p style={{marginRight: '1rem', marginLeft: '1rem'}}>x 12</p>
-                <button style={{marginRight: '1rem'}} className='btn btn-light'>+</button>
-            </div>
-            }
             <button style={{marginRight:'0.5rem'}} onClick={()=> dispatch(getDetails(id)) && navigate('/session/details')} className='btn btn-outline-secondary'>ver mas</button>
             {
                 btn ? 
