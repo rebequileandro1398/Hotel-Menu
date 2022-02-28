@@ -50,6 +50,12 @@ export const Navbar = () => {
                 </div>
                 <form className="d-flex" onSubmit={handleSubmit}>
                     <img src={timer} alt=""  style={{width:'2.6rem', marginRight:'1rem'}}/>
+                    {
+                         number.length > 0 &&
+                         <div className={styles.bubble}>
+                             <p style={{fontSize: '0.6rem', color: '#fff'}}>{number.length * 10}</p>
+                         </div>
+                    }
                     <div className='d-flex flex-row'>
                         <Link to='/session/order'>
                             <img src={order} alt=""  style={{width:'2.5rem', marginRight:'1rem'}}/>
